@@ -46,10 +46,12 @@ public class CommonTests extends TestUtils {
     @Test
     public void loginTestWithPOM() throws InterruptedException {
 
-        LoginPage login = new LoginPage(driver);
         getLoginPage();
 
-        login.sendUser("gurar1986@gmail.com").sendPassword("cyo*@dPuM8$IIJ4oyx4jP@aw").clickSubmit();
+        new LoginPage(driver)
+                .sendUser("gurar1986@gmail.com")
+                .sendPassword("cyo*@dPuM8$IIJ4oyx4jP@aw")
+                .clickSubmit();
 
         WebElement welcomeTitle = driver.findElement(By.xpath("//div[contains(@class,'welcome')]/h2"));
         getWaitSec(6).until(ExpectedConditions.visibilityOf(welcomeTitle));
